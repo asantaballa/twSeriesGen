@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script src="scripts/twSeriesGenLib.js"></script>
+</head>
+<body onload='DoOnLoad();'>
+<script>
+//GenTestMsg();
+function DoOnLoad() {
+    var seriesGen = new SeriesGen();
+    seriesGen.Gen();
+    var results = seriesGen.getSeries();
+    console.log(results);
+	var divResults = document.getElementById('divResults');
+    var rHTML = "";
+    results.forEach(function(entry) {
+        console.log(entry.Value);
+        rHTML += entry.Value + "<br />";
+    });
+    divResults.innerHTML = rHTML;
+}
+</script>
+<h1>SeriesGen</h1>
+<hr />
+<div id="divResults"></div>
+</body>
+</html>
